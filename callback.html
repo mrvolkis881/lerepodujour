@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connexion TikTok</title><link rel="stylesheet" href="style.css"></head><body><main>
+<h1>Connexion TikTok</h1><p id="msg">Retour vers le Studio sur votre ordinateur…</p>
+<script>
+// Renvoie le code d'autorisation TikTok au Studio qui tourne sur l'ordinateur du propriétaire (localhost uniquement).
+var q = location.search || "";
+var p = new URLSearchParams(q);
+if (p.get("code") || p.get("error")) {
+  location.replace("http://localhost:8765/tiktok" + q);
+} else {
+  document.getElementById("msg").textContent = "Aucun code reçu. Relancez la connexion depuis le Studio.";
+}
+</script>
+</main></body></html>
